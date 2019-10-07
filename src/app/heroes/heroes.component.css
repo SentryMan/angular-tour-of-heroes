@@ -1,9 +1,9 @@
 @import '../MDB-Free_4.8.10/css/bootstrap.min.css';
 @import '../MDB-Free_4.8.10/css/mdb.min.css';
+
 .heroes {
+
   margin: 0 0 2em 0;
-
-
   width: 100%;
   text-align: center;
 }
