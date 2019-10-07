@@ -1,0 +1,75 @@
+<button type="button" mdbBtn color="warning" rounded="true" data-toggle="modal" data-target="#basicExample"
+        (click)="frame.show()" mdbWavesEffect>Add A Hero
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade top animated bounce" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Enter The Hero's Information</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="md-form mb-5">
+          <input type="text" id="form3" class="form-control" mdbInput mdbValidate
+                 [formControl] = "modalFormName">
+          <label for="form3">Name</label>
+          <mdb-error
+            *ngIf="modalFormName.invalid && (modalFormName.dirty || modalFormName.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="modalFormName.valid && (modalFormName.dirty || modalFormName.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form">
+
+          <input type="text" id="form2" class="form-control" mdbInput mdbValidate
+                 [formControl]="modalFormHeroName">
+          <label for="form2">Hero Name</label>
+          <mdb-error
+            *ngIf="modalFormHeroName.invalid && (modalFormHeroName.dirty || modalFormHeroName.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="modalFormHeroName.valid && (modalFormHeroName.dirty || modalFormHeroName.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form">
+
+          <input type="text" id="form1" class="form-control" mdbInput mdbValidate
+                 [formControl]="modalFormQuirk">
+          <label for="form2">Quirk</label>
+          <mdb-error
+            *ngIf="modalFormQuirk.invalid && (modalFormQuirk.dirty || modalFormQuirk.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success
+            *ngIf="modalFormQuirk.valid && (modalFormQuirk.dirty || modalFormQuirk.touched)">
+            Input valid
+          </mdb-success>
+        </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type = "button" (click) = "SendData(); frame.hide()" mdbBtn color = "warning" outline = "true" class = "waves-effect" mdbWavesEffect  >Send To Database
+          <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+        </a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>

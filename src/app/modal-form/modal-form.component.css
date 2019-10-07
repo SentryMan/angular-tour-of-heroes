@@ -1,0 +1,9 @@
+@import '../MDB-Free_4.8.10/css/bootstrap.min.css';
+@import '../Angular/MDB-Free_4.8.10/css/mdb.min.css';
+
+  .modal-notify .modal-header {
+    border-radius: 3px 3px 0 0;
+    }
+    .modal-notify .modal-content {
+    border-radius: 3px;
+    }

@@ -1,0 +1,26 @@
+<div *ngIf="hero">
+
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>ID: </span>{{hero.id}}</div>
+
+  <div>
+    <p>Name: {{hero.name}} </p>
+  </div>
+
+  <div>
+    <p>Hero Name: {{hero.heroName}}</p>
+  </div>
+
+    <div>
+    <p>Quirk: {{hero.quirk}}</p>
+  </div>
+
+</div>
+<div>
+<app-modal-update></app-modal-update>
+</div>
+
+<div>
+<button type="button" mdbBtn color="primary" (click)="goBack()">go back</button>
+
+</div>

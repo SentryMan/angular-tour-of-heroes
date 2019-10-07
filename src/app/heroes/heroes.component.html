@@ -1,0 +1,43 @@
+<h2 style=" text-align: center;" >My Heroes</h2>
+
+<div style=" text-align: center;">
+  <app-modal-form></app-modal-form>
+</div>
+<div>
+<ul class="heroes" >
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  <button class = "btn-sm" type="button" mdbBtn color="primary"  data-toggle="modal" data-target="#basicExample"
+    (click)="frame.show(); deadhero = hero" mdbWavesEffect>X</button>
+  </li>
+</ul>
+</div>
+
+
+<div mdbModal #frame="mdbModal" class="modal fade top animated bounce" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure about that?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <p> This Hero will be permanently deleted</p>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center ">
+        <a mdbBtn color="danger" outline="true" class="waves-effect"
+          mdbWavesEffect (click)="frame.hide(); delete(deadhero)">Yes</a>
+        <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide();">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div  >
