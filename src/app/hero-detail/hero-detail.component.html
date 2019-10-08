@@ -11,16 +11,13 @@
     <p>Hero Name: {{hero.heroName}}</p>
   </div>
 
-    <div>
+  <div>
     <p>Quirk: {{hero.quirk}}</p>
   </div>
-
-</div>
-<div>
-<app-modal-update></app-modal-update>
-</div>
-
-<div>
-<button type="button" mdbBtn color="primary" (click)="goBack()">go back</button>
-
+  <div>
+    <app-modal-update [hero]="hero"></app-modal-update>
+  </div>
+  <div>
+    <button type="button" mdbBtn color="primary" (click)="goBack()">go back</button>
+  </div>
 </div>

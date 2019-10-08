@@ -12,15 +12,13 @@ import javax.persistence.Table;
 public class StudentModel {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
 	@Column(name = "hero_name")
 	private String hero_name;
 	private String quirk;
-
-	
-	
 
 	public int getId() {
 		return id;

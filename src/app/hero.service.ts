@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, Subject } from 'rxjs';
 import { map, catchError, tap, retry } from 'rxjs/operators';
 
 import { Hero } from './hero';
@@ -17,12 +17,17 @@ export class HeroService {
 
   constructor(private http: HttpClient) { }
 
-   httpOptions = {
+  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
 
+  heroUpdatedSubject: Subject<Hero> = new Subject<Hero>();
+
+  subscribeToHeroUpdates(): Subject<Hero> {
+    return this.heroUpdatedSubject;
+  }
 
   getHeroes(): Observable<Hero[]> {
 
@@ -35,7 +40,6 @@ export class HeroService {
   }
 
   addHero(hero: Hero): Observable<any> {
-
     return this.http.post(this.endpoint, JSON.stringify(hero), this.httpOptions);
   }
 
@@ -50,6 +54,10 @@ export class HeroService {
     const url = `${this.endpoint}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions);
+  }
+
+  heroUpdated(hero: Hero) {
+    this.heroUpdatedSubject.next(hero);
   }
 
 }
