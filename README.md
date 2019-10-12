@@ -1,6 +1,6 @@
 # AngularTourOfHeroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8. It comes with a springboot api that wil connect to the website.
 
 ## Development server
 
